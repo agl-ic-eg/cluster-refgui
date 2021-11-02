@@ -18,11 +18,11 @@ pkg_check_modules(CLUSTER_IPC REQUIRED cluster_ipc)
 pkg_check_modules(CLUSTER_API REQUIRED cluster_api)
 
 include_directories(
-    "${Qt5Core_INCLUDE_DIRS}"
-    "${Qt5Qml_INCLUDE_DIRS}"
-    "${Qt5Gui_INCLUDE_DIRS}"
-    "${CLUSTER_IPC_INCLUDE_DIRS}"
-    "${CLUSTER_API_INCLUDE_DIRS}"
+    ${Qt5Core_INCLUDE_DIRS}
+    ${Qt5Qml_INCLUDE_DIRS}
+    ${Qt5Gui_INCLUDE_DIRS}
+    ${CLUSTER_IPC_INCLUDE_DIRS}
+    ${CLUSTER_API_INCLUDE_DIRS}
     Application
 )
 
