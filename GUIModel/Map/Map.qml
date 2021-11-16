@@ -52,7 +52,7 @@ Item {
             anchors.fill: parent
             visible: true
             loops: MediaPlayer.Infinite
-            source: "gst-pipeline: filesrc location=" + CurDirPath + "/map_movie.mp4 ! decodebin ! videoconvert ! qtvideosink"
+            //source: "gst-pipeline: filesrc location=" + CurDirPath + "/map_movie.mp4 ! decodebin ! videoconvert ! qtvideosink"
         }
 
         Item{

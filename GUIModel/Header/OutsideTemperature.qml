@@ -28,7 +28,7 @@ Item {
     onTempValueChanged: {
         updateOutsideTemperatureVisible();
     }
-    Component.onCompleted: tempValue = -20
+    //Component.onCompleted: tempValue = -20
 
     function updateOutsideTemperatureVisible(){
         if((tempValueMin <= tempValue) && (tempValue <= tempValueMax)){

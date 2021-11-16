@@ -41,7 +41,6 @@ Item {
        id: meterParts
        property var easing: Easing.InOutQuad
        Component.onCompleted: {
-           testAnim.start()
        }
 
        Connections{
@@ -93,69 +92,6 @@ Item {
 
        DigitalSpeed {
            id: digitalSpeed
-       }
-
-       ParallelAnimation{
-           id: testAnim
-           SequentialAnimation{
-               id: testAnimSpeed
-               loops: Animation.Infinite
-               NumberAnimation {
-                   target: meter
-                   property: "speedValue"
-                   duration: 1000
-                   easing.type: Easing.InOutQuad
-                   to: 300
-               }
-               NumberAnimation{
-                   duration: 5000
-               }
-
-               NumberAnimation {
-                   target: meter
-                   property: "speedValue"
-                   duration: 5000
-                   easing.type: Easing.InOutQuad
-                   to: 0
-               }
-           }
-
-           SequentialAnimation{
-               id: testAnimTacho
-               loops: Animation.Infinite
-               NumberAnimation {
-                   target: meter
-                   property: "tachoValue"
-                   duration: 500
-                   easing.type: Easing.InOutQuad
-                   to: 8000
-               }
-               NumberAnimation {
-                   target: meter
-                   property: "tachoValue"
-                   duration: 2500
-                   easing.type: Easing.InOutQuad
-                   to: 0
-               }
-           }
-           SequentialAnimation{
-               id: testAnimCharge
-               loops: Animation.Infinite
-               NumberAnimation {
-                   target: meter
-                   property: "chargeValue"
-                   duration: 10000
-                   easing.type: Easing.Linear
-                   to: 0
-               }
-               NumberAnimation {
-                   target: meter
-                   property: "chargeValue"
-                   duration: 10000
-                   easing.type: Easing.Linear
-                   to: 100
-               }
-           }
        }
     }
 }

@@ -18,6 +18,7 @@
 #define REFGUI_IC_DATAPOOL_H
 
 #include <QObject>
+#include <QVariant>
 
 class IC_DataPool : public QObject
 {
@@ -44,39 +45,39 @@ public:
     // Shift Position
     void WriteGearAtVal(int pos);
     // Speed
-    void WriteSpAnalogVal(unsigned long speed);
+    void WriteSpAnalogVal(uint speed);
     // Tacho
-    void WriteTaAnalogVal(unsigned long rpm);
+    void WriteTaAnalogVal(uint rpm);
     // Trip
-    void WriteOTempVal(signed short temp);
-    void WriteCruRangeVal(unsigned short range);
+    void WriteOTempVal(int temp);
+    void WriteCruRangeVal(uint range);
 
 signals:
     // Telltale
-    void signalTurnR(bool on_off);
-    void signalTurnL(bool on_off);
-    void signalBrake(bool on_off);
-    void signalSeatbelt(bool on_off);
-    void signalHighbeam(bool on_off);
-    void signalDoor(bool on_off);
-    void signalEps(bool on_off);
-    void signalSrsAirbag(bool on_off);
-    void signalAbs(bool on_off);
-    void signalLowBattery(bool on_off);
-    void signalImmobi(bool on_off);
-    void signalEspAct(bool on_off);
-    void signalEspOff(bool on_off);
-    void signalHillDescent(bool on_off);
-    void signalGeneralWarn(bool on_off);
+    void signalTurnR(QVariant on_off);
+    void signalTurnL(QVariant on_off);
+    void signalBrake(QVariant on_off);
+    void signalSeatbelt(QVariant on_off);
+    void signalHighbeam(QVariant on_off);
+    void signalDoor(QVariant on_off);
+    void signalEps(QVariant on_off);
+    void signalSrsAirbag(QVariant on_off);
+    void signalAbs(QVariant on_off);
+    void signalLowBattery(QVariant on_off);
+    void signalImmobi(QVariant on_off);
+    void signalEspAct(QVariant on_off);
+    void signalEspOff(QVariant on_off);
+    void signalHillDescent(QVariant on_off);
+    void signalGeneralWarn(QVariant on_off);
     // Shift Position
-    void signalGearAtVal(int pos);
+    void signalGearAtVal(QVariant pos);
     // Speed
-    void signalSpAnalogVal(unsigned long speed);
+    void signalSpAnalogVal(QVariant speed);
     // Tacho
-    void signalTaAnalogVal(unsigned long rpm);
+    void signalTaAnalogVal(QVariant rpm);
     // Trip
-    void signalOTempVal(signed short temp);
-    void signalCruRangeVal(unsigned short range);
+    void signalOTempVal(QVariant temp);
+    void signalCruRangeVal(QVariant range);
 
 private:
     bool TurnR;

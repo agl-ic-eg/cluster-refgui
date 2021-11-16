@@ -35,6 +35,8 @@ class IC_Receiver : public IC_DataPool
 public:
     explicit IC_Receiver(QObject *parent = 0);
     ~IC_Receiver();
+
+public slots:
     void receive();
 };
 

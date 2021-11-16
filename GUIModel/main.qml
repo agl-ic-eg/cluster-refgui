@@ -42,20 +42,20 @@ Window {
     /* SLOTS */
     function slotTurnR(on_off){
         if(on_off){
-            header.turn_r_on.visible = true
-            header.turn_r_off.visible = false
+            header.turn_r_on_visible = true
+            header.turn_r_off_visible = false
         }else{
-            header.turn_r_on.visible = false
-            header.turn_r_off.visible = true
+            header.turn_r_on_visible = false
+            header.turn_r_off_visible = true
         }
     }
     function slotTurnL(on_off){
         if(on_off){
-            header.turn_l_on.visible = true
-            header.turn_l_off.visible = false
+            header.turn_l_on_visible = true
+            header.turn_l_off_visible = false
         }else{
-            header.turn_l_on.visible = false
-            header.turn_l_off.visible = true
+            header.turn_l_on_visible = false
+            header.turn_l_off_visible = true
         }
     }
     function slotBrake(on_off){
@@ -89,7 +89,7 @@ Window {
         telltale.telltaleEspAct = on_off
     }
     function slotEspOff(on_off){
-        telltale.telltaleEspOff = on_off
+        telltale.telltaleEpsOff = on_off
     }
     function slotHillDescent(on_off){
         telltale.telltaleHillDescent = on_off
@@ -117,6 +117,7 @@ Window {
         default:  // Parking
             shiftPosition.shiftId = 1
             break
+        }
     }
     function slotSpAnalogVal(speed){
         meter.speedValue = speed / 100
@@ -125,10 +126,10 @@ Window {
         meter.tachoValue = tacho
     }
     function slotOTempVal(temp){
-        header.outsideTemperature.tempValue = temp
+        header.outsideTemperature_value = temp
     }
     function slotCruRangeVal(range){
-        cruisingRange.slotCruRangeVal = range
+        cruisingRange.cruisingRangeValue = range
     }
     Item{
         id: rootItem

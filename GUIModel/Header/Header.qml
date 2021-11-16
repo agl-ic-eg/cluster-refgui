@@ -18,9 +18,17 @@ import QtQuick 2.14
 
 Item {
     id: header
+
+    property bool turn_l_on_visible: false
+    property bool turn_l_off_visible: true
+    property bool turn_r_on_visible: false
+    property bool turn_r_off_visible: true
+    property int outsideTemperature_value: -20
+
 /***********Outside temperature************/
     OutsideTemperature {
         id: outsideTemperature
+        tempValue: outsideTemperature_value
     }
 
 /***********clock************/
@@ -38,7 +46,7 @@ Item {
           y: 43
           width: 44
           height: 44
-          visible: false
+          visible: turn_l_on_visible
         }
         Image{
           id: turn_l_off
@@ -47,7 +55,7 @@ Item {
           y: 43
           width: 44
           height: 44
-          visible: true
+          visible: turn_l_off_visible
         }
         Image{
           id: turn_r_on
@@ -56,7 +64,7 @@ Item {
           y: 43
           width: 44
           height: 44
-          visible: false
+          visible: turn_r_on_visible
         }
         Image{
           id: turn_r_off
@@ -65,7 +73,7 @@ Item {
           y: 43
           width: 44
           height: 44
-          visible: true
+          visible: turn_r_off_visible
         }
     }
 }

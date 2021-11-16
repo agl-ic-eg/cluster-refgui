@@ -126,22 +126,22 @@ void IC_DataPool::WriteGearAtVal(int pos)
 	EMIT_SIGNAL(GearAtVal, pos);
 }
 
-void IC_DataPool::WriteSpAnalogVal(unsigned long speed)
+void IC_DataPool::WriteSpAnalogVal(uint speed)
 {
 	EMIT_SIGNAL(SpAnalogVal, speed);
 }
 
-void IC_DataPool::WriteTaAnalogVal(unsigned long rpm)
+void IC_DataPool::WriteTaAnalogVal(uint rpm)
 {
 	EMIT_SIGNAL(TaAnalogVal, rpm);
 }
 
-void IC_DataPool::WriteOTempVal(signed short temp)
+void IC_DataPool::WriteOTempVal(int temp)
 {
 	EMIT_SIGNAL(OTempVal, temp);
 }
 
-void IC_DataPool::WriteCruRangeVal(unsigned short range)
+void IC_DataPool::WriteCruRangeVal(uint range)
 {
 	EMIT_SIGNAL(CruRangeVal, range);
 }
