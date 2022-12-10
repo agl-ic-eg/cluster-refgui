@@ -39,14 +39,6 @@ Item{
         onTransNormalToAdas:{
             normalToAdasAnimationFuel.start()
         }
-
-        onTransAdasToMap:{
-            /**/
-        }
-
-        onTransMapToNormal:{
-            mapToNormalAnimationFuel.start()
-        }
     }
 
     function updateCruisingRangeValue(){

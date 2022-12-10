@@ -72,38 +72,6 @@ Item {
             else if(rootItem.arrow_state == "arrow_normal_near"){
                 rootItem.arrow_state = "arrow_adas_near"}
         }
-
-        onTransAdasToMap:{
-            adasToMapAnimation_acc3d.start()
-
-        }
-
-        onTransMapToNormal:{
-            ddditemTonormalsize.start()
-            if(rootItem.set_state == "set_default"){
-                fadeout_in_default.start()
-            }else if(rootItem.set_state == "set_middle"){
-                fadeout_in_mid.start()
-            }else if(rootItem.set_state == "set_near"){
-                fadeout_in_near.start()
-            }
-            cameraTonormalPos.start()
-
-
-            if(rootItem.car_state == "adas_default"){
-                rootItem.car_state = "normal_default"}
-            else if(rootItem.car_state == "adas_middle"){
-                rootItem.car_state = "normal_middle"}
-            else if(rootItem.car_state == "adas_near"){
-                rootItem.car_state = "normal_near"}
-
-            if(rootItem.arrow_state == "arrow_adas_default"){
-                rootItem.arrow_state = "arrow_normal_default"}
-            else if(rootItem.arrow_state == "arrow_adas_middle"){
-                rootItem.arrow_state = "arrow_normal_middle"}
-            else if(rootItem.arrow_state == "arrow_adas_near"){
-                rootItem.arrow_state = "arrow_normal_near"}
-        }
     }
 
     function lineposchange(){

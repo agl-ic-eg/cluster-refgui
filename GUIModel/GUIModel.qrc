@@ -19,7 +19,6 @@
         <file>Header/Clock.qml</file>
         <file>Header/Header.qml</file>
         <file>Header/OutsideTemperature.qml</file>
-        <file>Map/Map.qml</file>
         <file>ShiftPosition/ShiftPosition.qml</file>
         <file>Telltale/Telltale.qml</file>
         <file>TurnByTurn/TurnByTurn.qml</file>

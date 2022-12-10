@@ -22,7 +22,6 @@ import "./FPSItem"
 import "./ACC"
 import "./CruisingRange"
 import "./Header"
-import "./Map"
 import "./Menu"
 import "./Meter"
 import "./ShiftPosition"
@@ -50,8 +49,6 @@ Window {
         property string arrow_state : "arrow_normal_default"
         property string set_state : "set_default"
         signal transNormalToAdas()
-        signal transAdasToMap()
-        signal transMapToNormal()
 
         signal keyPressed_Up()
         signal keyPressed_Down()
@@ -121,10 +118,6 @@ Window {
 
         }
 
-        Map{
-            id: map
-        }
-
         TurnByTurn{
             id:turnByTurn
         }
@@ -153,22 +146,6 @@ Window {
         Keys.onPressed: {
 
             switch(event.key){
-                case(Qt.Key_C):
-
-                    if(mode === 0){
-                        transNormalToAdas();
-                    }else if(mode === 1){
-                        transAdasToMap();
-                    }else if(mode === 2){
-                        transMapToNormal()
-                    }
-
-                    mode++;
-                    if(mode > 2) mode = 0;
-                    break
-
-
-
             case(Qt.Key_1):
                 if(shiftPosition.shiftId < 5) {
                     shiftPosition.shiftId++

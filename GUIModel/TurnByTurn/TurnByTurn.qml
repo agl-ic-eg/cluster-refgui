@@ -48,14 +48,6 @@ Item {
             onTransNormalToAdas:{
                 normalToAdasAnimationTbt.start()
             }
-
-            onTransAdasToMap:{
-                adasToMapAnimationTbt.start()
-            }
-
-            onTransMapToNormal:{
-                mapToNormalAnimationTbt.start()
-            }
         }
 
 

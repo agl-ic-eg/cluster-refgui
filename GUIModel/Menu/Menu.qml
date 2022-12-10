@@ -30,16 +30,6 @@ Item{
             menuShade.startAnimationNormalToAdas()
         }
 
-        onTransAdasToMap:{
-            /**/
-        }
-
-        onTransMapToNormal:{
-            menuMain.startAnimationMapToNormal()
-            menuContents.startAnimationMapToNormal()
-            menuShade.startAnimationMapToNormal()
-        }
-
         onKeyPressed_Up:{
             if(menu.state === "open"){
                 menuMain.incrementIndex()

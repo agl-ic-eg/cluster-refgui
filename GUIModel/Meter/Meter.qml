@@ -49,14 +49,6 @@ Item {
            onTransNormalToAdas:{
                / *nop */
            }
-
-           onTransAdasToMap:{
-               / *nop */
-           }
-
-           onTransMapToNormal:{
-               / *nop */
-           }
        }
 
        Sideline {

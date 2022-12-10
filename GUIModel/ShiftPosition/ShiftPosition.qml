@@ -30,14 +30,6 @@ Item {
         onTransNormalToAdas:{
             normalToAdasAnimationShift.start()
         }
-
-        onTransAdasToMap:{
-            /**/
-        }
-
-        onTransMapToNormal:{
-            mapToNormalAnimationShift.start()
-        }
     }
 
     function idchange(){

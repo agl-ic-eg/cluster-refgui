@@ -34,14 +34,6 @@ Item {
         onTransNormalToAdas:{
             normalToAdasAnimation.start()
         }
-
-        onTransAdasToMap:{
-            /**/
-        }
-
-        onTransMapToNormal:{
-            mapToNormalAnimation.start()
-        }
     }
 
     function limitTachoValue(){

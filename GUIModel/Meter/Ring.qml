@@ -29,14 +29,6 @@ Item {
         onTransNormalToAdas:{
             normalToAdasAnimation.start()
         }
-
-        onTransAdasToMap:{
-            /**/
-        }
-
-        onTransMapToNormal:{
-            mapToNormalAnimation.start()
-        }
     }
 
     Image{
