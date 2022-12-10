@@ -11,6 +11,7 @@ set(INSTALL_DIRECTORY "/opt/apps")
 find_package(Qt5Core REQUIRED)
 find_package(Qt5Qml REQUIRED)
 find_package(Qt5Gui REQUIRED)
+find_package(Qt5QuickCompiler REQUIRED)
 
 include_directories(
     "${Qt5Core_INCLUDE_DIRS}"
