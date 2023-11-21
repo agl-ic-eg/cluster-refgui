@@ -21,6 +21,7 @@
 #include <QQmlContext>
 #include <QDebug>
 
+#include "cluster-service.hxx"
 
 int main(int argc, char *argv[])
 {
@@ -45,6 +46,10 @@ int main(int argc, char *argv[])
             QCoreApplication::exit(-1);
     }, Qt::QueuedConnection);
     engine.load(url);
+
+    QClusterService cluster_service;
+    cluster_service.start();
+    engine.rootContext()->setContextProperty("cluster_service", &cluster_service);
 
     return app.exec();
 }

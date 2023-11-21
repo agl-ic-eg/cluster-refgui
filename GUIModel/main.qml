@@ -286,6 +286,16 @@ Window {
             }
        }
 
+        Timer {
+            property int num  : 0
+            interval: 10
+            repeat: true
+            running: true
+            onTriggered: {
+                var speed_val_capi = cluster_service.getSpAnalogVal();
+                meter.speedValue = speed_val_capi / 100;
+            }
+        }
 
         Timer { //test
             property int num  : 0
@@ -315,7 +325,7 @@ Window {
         }
     }
 
-//  FpsItem{}
+  FpsItem{}
 
     function telltaleSwitching(){
         telltale.telltaleMasterWarn = !telltale.telltaleMasterWarn

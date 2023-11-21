@@ -86,7 +86,7 @@ Item {
        DigitalSpeed {
            id: digitalSpeed
        }
-
+/*
        ParallelAnimation{
            id: testAnim
            SequentialAnimation{
@@ -148,7 +148,7 @@ Item {
                    to: 100
                }
            }
-       }
+       }*/
     }
 }
 
