@@ -40,9 +40,11 @@ Item {
     Item {
        id: meterParts
        property var easing: Easing.InOutQuad
+       /*
        Component.onCompleted: {
            testAnim.start()
        }
+       */
 
        Connections{
            target: rootItem

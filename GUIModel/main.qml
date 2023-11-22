@@ -133,7 +133,7 @@ Window {
         }
         CruisingRange {
             id: cruisingRange
-            cruisingRangeValue : 750
+            cruisingRangeValue : 750.0
         }
 
         Header{
@@ -292,8 +292,43 @@ Window {
             repeat: true
             running: true
             onTriggered: {
+                // speed
                 var speed_val_capi = cluster_service.getSpAnalogVal();
                 meter.speedValue = speed_val_capi / 100;
+
+                // Trip
+                //var tripa_val_capi = cluster_service.getTrcomTripAVal();
+                //cruisingRange.cruisingRangeValue = tripa_val_capi / 10;
+
+                // Turn R
+                var turnr_val_capi = cluster_service.getTurnR();
+                if (turnr_val_capi === true) {
+                    header.setTurnROn();
+                } else {
+                    header.setTurnROff();
+                }
+
+                // Turn L
+                var turnl_val_capi = cluster_service.getTurnL();
+                if (turnl_val_capi === true) {
+                    header.setTurnLOn();
+                } else {
+                    header.setTurnLOff();
+                }
+
+                // Seetbelt
+                var sbeltr_val_capi = cluster_service.getFrontRightSeatbelt();
+                if (sbeltr_val_capi === true) {
+                    telltale.telltaleSeatbelt = true;
+                } else {
+                    telltale.telltaleSeatbelt = false;
+                }
+                var sbeltl_val_capi = cluster_service.getFrontLeftSeatbelt();
+                if (sbeltl_val_capi === true) {
+                    telltale.telltaleSeatbelt2 = true;
+                } else {
+                    telltale.telltaleSeatbelt2 = false;
+                }
             }
         }
 
@@ -325,7 +360,7 @@ Window {
         }
     }
 
-  FpsItem{}
+    //FpsItem{}
 
     function telltaleSwitching(){
         telltale.telltaleMasterWarn = !telltale.telltaleMasterWarn
@@ -358,7 +393,7 @@ Window {
         telltale.telltaleSeatbelt2 = !telltale.telltaleSeatbelt2
         telltale.telltaleEpbWarn = !telltale.telltaleEpbWarn
         telltale.telltaleEps= !telltale.telltaleEps
-        telltale.telltaleHighbeamAssist = !telltale.telltaleHighbeamAssist
+        telltale.telltaleHighbeamAssist = true;//!telltale.telltaleHighbeamAssist
         telltale.telltaleHighbeam = !telltale.telltaleHighbeam
         telltale.telltaleRearFog = !telltale.telltaleRearFog
         telltale.telltaleLowbeam = !telltale.telltaleLowbeam

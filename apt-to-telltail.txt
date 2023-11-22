@@ -1,0 +1,116 @@
+telltale.telltaleGeneralWarn = !telltale.telltaleGeneralWarn
+IC_HMI_ON_OFF getGeneralWarn(void);
+
+telltale.telltaleMotorWarn = !telltale.telltaleMotorWarn
+IC_HMI_ON_OFF getEngine(void);
+
+telltale.telltaleLowBatt = !telltale.telltaleLowBatt
+IC_HMI_ON_OFF getLowBattery(void);
+
+telltale.telltaleLdw = !telltale.telltaleLdw
+IC_HMI_ON_OFF getLdwOff(void);
+
+telltale.telltaleSrsAirbag = !telltale.telltaleSrsAirbag
+IC_HMI_ON_OFF getSrsAirbag(void);
+
+telltale.telltaleEpsOff = !telltale.telltaleEpsOff
+IC_HMI_ON_OFF getEspOff(void);
+
+telltale.telltaleBrake = !telltale.telltaleBrake
+IC_HMI_ON_OFF getBrake(void);
+
+telltale.telltaleAbsWarn = !telltale.telltaleAbsWarn
+IC_HMI_ON_OFF getAbs(void);
+
+telltale.telltaleEspAct = !telltale.telltaleEspAct
+IC_HMI_ON_OFF getEspAct(void);
+
+telltale.telltaleHillDescent = !telltale.telltaleHillDescent
+IC_HMI_ON_OFF getHillDescent(void);
+
+telltale.telltaleImmobi = !telltale.telltaleImmobi
+IC_HMI_ON_OFF getImmobi(void);
+
+telltale.telltaleDoor = !telltale.telltaleDoor
+IC_HMI_ON_OFF getDoor(void);
+
+telltale.telltaleSeatbelt = !telltale.telltaleSeatbelt
+telltale.telltaleSeatbelt2 = !telltale.telltaleSeatbelt2
+IC_HMI_ON_OFF getFrontRightSeatbelt(void);
+IC_HMI_ON_OFF getFrontLeftSeatbelt(void);
+
+telltale.telltaleEps= !telltale.telltaleEps
+IC_HMI_ON_OFF getEps(void);
+
+telltale.telltaleHighbeamAssist = !telltale.telltaleHighbeamAssist
+IC_HMI_ON_OFF getAutoHiBeamGreen(void);
+
+telltale.telltaleHighbeam = !telltale.telltaleHighbeam
+IC_HMI_ON_OFF getHighbeam(void);
+
+telltale.telltaleLowbeam = !telltale.telltaleLowbeam
+IC_HMI_ON_OFF getAutoHiBeamGreen(void);
+&&
+! IC_HMI_ON_OFF getHighbeam(void);
+
+
+Other
+IC_HMI_ON_OFF getTurnR(void);
+IC_HMI_ON_OFF getTurnL(void);
+
+
+No connect
+telltale.telltaleEvSystemWarn = !telltale.telltaleEvSystemWarn
+telltale.telltaleChargingPlugWarn = !telltale.telltaleChargingPlugWarn
+telltale.telltaleBattWarn = !telltale.telltaleBattWarn
+telltale.telltaleBattTempWarn = !telltale.telltaleBattTempWarn
+telltale.telltaleHighVoltBattCut = !telltale.telltaleHighVoltBattCut
+telltale.telltaleDecharge = !telltale.telltaleDecharge
+telltale.telltalePopupHoodWarn = !telltale.telltalePopupHoodWarn
+telltale.telltaleBrakeEnergyRecovOff = !telltale.telltaleBrakeEnergyRecovOff
+telltale.telltaleBrakeEnergyRecovLv = !telltale.telltaleBrakeEnergyRecovLv
+telltale.telltaleAeb = !telltale.telltaleAeb
+telltale.telltaleBsd = !telltale.telltaleBsd
+telltale.telltaleAutoParking = !telltale.telltaleAutoParking
+telltale.telltaleTpmsInd = !telltale.telltaleTpmsInd
+telltale.telltaleEpbWarn = !telltale.telltaleEpbWarn
+telltale.telltaleMasterWarn = !telltale.telltaleMasterWarn
+telltale.telltaleRearFog = !telltale.telltaleRearFog
+telltale.telltalePosition = !telltale.telltalePosition
+
+
+No connect
+IC_HMI_ON_OFF getAutoHiBeamAmber(void);
+IC_HMI_ON_OFF getFrontRightDoor(void);
+IC_HMI_ON_OFF getFrontLeftDoor(void);
+IC_HMI_ON_OFF getRearRightDoor(void);
+IC_HMI_ON_OFF getRearLeftDoor(void);
+IC_HMI_ON_OFF getTrunkDoor(void);
+IC_HMI_ON_OFF getHoodDoor(void);
+IC_HMI_ON_OFF getSeatbelt(void);
+IC_HMI_ON_OFF getFrontCenterSeatbelt(void);
+IC_HMI_ON_OFF getMid1RightSeatbelt(void);
+IC_HMI_ON_OFF getMid1CenterSeatbelt(void);
+IC_HMI_ON_OFF getMid1LeftSeatbelt(void);
+IC_HMI_ON_OFF getMid2RightSeatbelt(void);
+IC_HMI_ON_OFF getMid2CenterSeatbelt(void);
+IC_HMI_ON_OFF getMid2LeftSeatbelt(void);
+IC_HMI_ON_OFF getRearRightSeatbelt(void);
+IC_HMI_ON_OFF getRearCenterSeatbelt(void);
+IC_HMI_ON_OFF getRearLeftSeatbelt(void);
+IC_HMI_ON_OFF getOilPress(void);
+IC_HMI_ON_OFF getFuel(void);
+IC_HMI_ON_OFF getTMFail(void);
+IC_HMI_ON_OFF getAdaptingLighting(void);
+IC_HMI_ON_OFF getAutoStop(void);
+IC_HMI_ON_OFF getAutoStopFail(void);
+IC_HMI_ON_OFF getParkingLights(void);
+IC_HMI_ON_OFF getFrontFog(void);
+IC_HMI_ON_OFF getExteriorLightFault(void);
+IC_HMI_ON_OFF getAccFail(void);
+IC_HMI_ON_OFF getSportsMode(void);
+IC_HMI_ON_OFF getLdwOperate(void);
+IC_HMI_ON_OFF getDriverPowerMode(void);
+IC_HMI_ON_OFF getHotTemp(void);
+IC_HMI_ON_OFF getLowTemp(void);
+        

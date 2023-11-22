@@ -25,10 +25,78 @@ Q_INVOKABLE int QClusterService::getSpAnalogVal()
     speed_u32 = ::getSpAnalogVal();
     if (speed_u32 > (uint32_t)INT_MAX)
         retval = INT_MAX;
-    else if (speed_u32 < 0)
-        retval = 0;
     else
         retval = (int)speed_u32;
+
+    return retval;
+}
+//-----------------------------------------------------------------------------------
+Q_INVOKABLE int QClusterService::getTrcomTripAVal()
+{
+    uint32_t tripa_u32 = 0;
+    int retval = 0;
+
+    tripa_u32 = ::getTrcomTripAVal();
+    if (tripa_u32 > (uint32_t)INT_MAX)
+        retval = INT_MAX;
+    else
+        retval = (int)tripa_u32;
+
+    return retval;
+}
+//-----------------------------------------------------------------------------------
+Q_INVOKABLE bool QClusterService::getTurnR()
+{
+    IC_HMI_ON_OFF on_off_flag = IC_HMI_OFF;
+    bool retval = false;
+
+    on_off_flag = ::getTurnR();
+    if (on_off_flag == IC_HMI_OFF)
+        retval = false;
+    else
+        retval = true;
+
+    return retval;
+}
+//-----------------------------------------------------------------------------------
+Q_INVOKABLE bool QClusterService::getTurnL()
+{
+    IC_HMI_ON_OFF on_off_flag = IC_HMI_OFF;
+    bool retval = false;
+
+    on_off_flag = ::getTurnL();
+    if (on_off_flag == IC_HMI_OFF)
+        retval = false;
+    else
+        retval = true;
+
+    return retval;
+}
+//-----------------------------------------------------------------------------------
+Q_INVOKABLE bool QClusterService::getFrontRightSeatbelt()
+{
+    IC_HMI_ON_OFF on_off_flag = IC_HMI_OFF;
+    bool retval = false;
+
+    on_off_flag = ::getFrontRightSeatbelt();
+    if (on_off_flag == IC_HMI_OFF)
+        retval = false;
+    else
+        retval = true;
+
+    return retval;
+}
+//-----------------------------------------------------------------------------------
+Q_INVOKABLE bool QClusterService::getFrontLeftSeatbelt()
+{
+    IC_HMI_ON_OFF on_off_flag = IC_HMI_OFF;
+    bool retval = false;
+
+    on_off_flag = ::getFrontLeftSeatbelt();
+    if (on_off_flag == IC_HMI_OFF)
+        retval = false;
+    else
+        retval = true;
 
     return retval;
 }
@@ -53,7 +121,7 @@ void QClusterService::run()
         ret = data_pool_client_setup_sdevent(event, &handle);
         if (ret == 0)
             break;
-        this->wait(10);
+        this->msleep(10);
     } while(true);
 
     //(void) registerIcHmi(IC_HMI_TT_TURN_R, ic_notify);

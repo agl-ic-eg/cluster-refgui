@@ -68,4 +68,23 @@ Item {
           visible: true
         }
     }
+
+    function setTurnLOn() {
+        turn_l_on.visible = true;
+        turn_l_off.visible = false;
+    }
+    function setTurnLOff() {
+        turn_l_on.visible = false;
+        turn_l_off.visible = true;
+    }
+
+    function setTurnROn() {
+        turn_r_on.visible = true;
+        turn_r_off.visible = false;
+    }
+    function setTurnROff() {
+        turn_r_on.visible = false;
+        turn_r_off.visible = true;
+    }
+
 }

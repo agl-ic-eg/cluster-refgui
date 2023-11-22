@@ -13,6 +13,12 @@ protected :
 public:
     // class I/F for QML
     Q_INVOKABLE int getSpAnalogVal();
+    Q_INVOKABLE int getTrcomTripAVal();
+    Q_INVOKABLE bool getTurnR();
+    Q_INVOKABLE bool getTurnL();
+    Q_INVOKABLE bool getFrontRightSeatbelt();
+    Q_INVOKABLE bool getFrontLeftSeatbelt();
+
 
     // class I/F for C++
     QClusterService();
