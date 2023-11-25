@@ -251,9 +251,6 @@ Window {
                     }
                 }
                 break
-            case(Qt.Key_4):
-                telltaleSwitching();
-                break
 
             case(Qt.Key_Up):
                 keyPressed_Up()
@@ -281,8 +278,6 @@ Window {
 
             default:
                 break
-
-
             }
        }
 
@@ -292,156 +287,7 @@ Window {
             repeat: true
             running: true
             onTriggered: {
-                // speed
-                var speed_val_capi = cluster_service.getSpAnalogVal();
-                meter.speedValue = speed_val_capi / 100.0;
-
-                // tacho
-                var tacho_val_capi = cluster_service.getTaAnalogVal();
-                meter.tachoValue = tacho_val_capi;
-
-                // Trip
-                //var tripa_val_capi = cluster_service.getTrcomTripAVal();
-                //cruisingRange.cruisingRangeValue = tripa_val_capi / 10;
-
-                // Turn R
-                var turnr_val_capi = cluster_service.getTurnR();
-                if (turnr_val_capi === true) {
-                    header.setTurnROn();
-                } else {
-                    header.setTurnROff();
-                }
-
-                // Turn L
-                var turnl_val_capi = cluster_service.getTurnL();
-                if (turnl_val_capi === true) {
-                    header.setTurnLOn();
-                } else {
-                    header.setTurnLOff();
-                }
-
-                // Seetbelt
-                var sbeltr_val_capi = cluster_service.getFrontRightSeatbelt();
-                if (sbeltr_val_capi === true) {
-                    telltale.telltaleSeatbelt = true;
-                } else {
-                    telltale.telltaleSeatbelt = false;
-                }
-                var sbeltl_val_capi = cluster_service.getFrontLeftSeatbelt();
-                if (sbeltl_val_capi === true) {
-                    telltale.telltaleSeatbelt2 = true;
-                } else {
-                    telltale.telltaleSeatbelt2 = false;
-                }
-
-                var genwarn_val_capi = cluster_service.getGeneralWarn();
-                if (genwarn_val_capi === true) {
-                    telltale.telltaleGeneralWarn = true;
-                } else {
-                    telltale.telltaleGeneralWarn = false;
-                }
-
-                var eng_val_capi = cluster_service.getEngine();
-                if (eng_val_capi === true) {
-                    telltale.telltaleMotorWarn = true;
-                } else {
-                    telltale.telltaleMotorWarn = false;
-                }
-
-                var lbatt_val_capi = cluster_service.getLowBattery();
-                if (lbatt_val_capi === true) {
-                    telltale.telltaleLowBatt = true;
-                } else {
-                    telltale.telltaleLowBatt = false;
-                }
-
-                var ldwoff_val_capi = cluster_service.getLdwOff();
-                if (ldwoff_val_capi === true) {
-                    telltale.telltaleLdw = true;
-                } else {
-                    telltale.telltaleLdw = false;
-                }
-
-                var srsair_val_capi = cluster_service.getSrsAirbag();
-                if (srsair_val_capi === true) {
-                    telltale.telltaleSrsAirbag = true;
-                } else {
-                    telltale.telltaleSrsAirbag = false;
-                }
-
-                var espoff_val_capi = cluster_service.getEspOff();
-                if (espoff_val_capi === true) {
-                    telltale.telltaleEpsOff = true;
-                } else {
-                    telltale.telltaleEpsOff = false;
-                }
-
-                var brake_val_capi = cluster_service.getBrake();
-                if (brake_val_capi === true) {
-                    telltale.telltaleBrake = true;
-                } else {
-                    telltale.telltaleBrake = false;
-                }
-
-                var abs_val_capi = cluster_service.getAbs();
-                if (abs_val_capi === true) {
-                    telltale.telltaleAbsWarn = true;
-                } else {
-                    telltale.telltaleAbsWarn = false;
-                }
-
-                var espact_val_capi = cluster_service.getEspAct();
-                if (espact_val_capi === true) {
-                    telltale.telltaleEspAct = true;
-                } else {
-                    telltale.telltaleEspAct = false;
-                }
-
-                var hill_val_capi = cluster_service.getHillDescent();
-                if (hill_val_capi === true) {
-                    telltale.telltaleHillDescent = true;
-                } else {
-                    telltale.telltaleHillDescent = false;
-                }
-
-                var immobi_val_capi = cluster_service.getImmobi();
-                if (immobi_val_capi === true) {
-                    telltale.telltaleImmobi = true;
-                } else {
-                    telltale.telltaleImmobi = false;
-                }
-
-                var door_val_capi = cluster_service.getDoor();
-                if (door_val_capi === true) {
-                    telltale.telltaleDoor = true;
-                } else {
-                    telltale.telltaleDoor = false;
-                }
-
-                var eps_val_capi = cluster_service.getEps();
-                if (eps_val_capi === true) {
-                    telltale.telltaleEps = true;
-                } else {
-                    telltale.telltaleEps = false;
-                }
-
-                var hibeamgreen_val_capi = cluster_service.getAutoHiBeamGreen();
-                var hibeam_val_capi = cluster_service.getHighbeam();
-                if (hibeamgreen_val_capi === true) {
-                    telltale.telltaleHighbeamAssist = true;
-
-                    if (hibeam_val_capi === true) {
-                        telltale.telltaleHighbeam = true;
-                        telltale.telltaleLowbeam = false;
-                    } else {
-                        telltale.telltaleHighbeam = false;
-                        telltale.telltaleLowbeam = true;
-                    }
-                } else {
-                    telltale.telltaleHighbeamAssist = false;
-                    telltale.telltaleHighbeam = false;
-                    telltale.telltaleLowbeam = false;
-                }
+                doUpdateClusterData()
             }
         }
 
@@ -474,6 +320,160 @@ Window {
     }
 
     //FpsItem{}
+
+    function doUpdateClusterData(){
+
+        // speed
+        var speed_val_capi = cluster_service.getSpAnalogVal();
+        meter.speedValue = speed_val_capi / 100.0;
+
+        // tacho
+        var tacho_val_capi = cluster_service.getTaAnalogVal();
+        meter.tachoValue = tacho_val_capi;
+
+        // Trip
+        //var tripa_val_capi = cluster_service.getTrcomTripAVal();
+        //cruisingRange.cruisingRangeValue = tripa_val_capi / 10;
+
+        // Turn R
+        var turnr_val_capi = cluster_service.getTurnR();
+        if (turnr_val_capi === true) {
+            header.setTurnROn();
+        } else {
+            header.setTurnROff();
+        }
+
+        // Turn L
+        var turnl_val_capi = cluster_service.getTurnL();
+        if (turnl_val_capi === true) {
+            header.setTurnLOn();
+        } else {
+            header.setTurnLOff();
+        }
+
+        // Seetbelt
+        var sbeltr_val_capi = cluster_service.getFrontRightSeatbelt();
+        if (sbeltr_val_capi === true) {
+            telltale.telltaleSeatbelt = true;
+        } else {
+            telltale.telltaleSeatbelt = false;
+        }
+        var sbeltl_val_capi = cluster_service.getFrontLeftSeatbelt();
+        if (sbeltl_val_capi === true) {
+            telltale.telltaleSeatbelt2 = true;
+        } else {
+            telltale.telltaleSeatbelt2 = false;
+        }
+
+        var genwarn_val_capi = cluster_service.getGeneralWarn();
+        if (genwarn_val_capi === true) {
+            telltale.telltaleGeneralWarn = true;
+        } else {
+            telltale.telltaleGeneralWarn = false;
+        }
+
+        var eng_val_capi = cluster_service.getEngine();
+        if (eng_val_capi === true) {
+            telltale.telltaleMotorWarn = true;
+        } else {
+            telltale.telltaleMotorWarn = false;
+        }
+
+        var lbatt_val_capi = cluster_service.getLowBattery();
+        if (lbatt_val_capi === true) {
+            telltale.telltaleLowBatt = true;
+        } else {
+            telltale.telltaleLowBatt = false;
+        }
+
+        var ldwoff_val_capi = cluster_service.getLdwOff();
+        if (ldwoff_val_capi === true) {
+            telltale.telltaleLdw = true;
+        } else {
+            telltale.telltaleLdw = false;
+        }
+
+        var srsair_val_capi = cluster_service.getSrsAirbag();
+        if (srsair_val_capi === true) {
+            telltale.telltaleSrsAirbag = true;
+        } else {
+            telltale.telltaleSrsAirbag = false;
+        }
+
+        var espoff_val_capi = cluster_service.getEspOff();
+        if (espoff_val_capi === true) {
+            telltale.telltaleEpsOff = true;
+        } else {
+            telltale.telltaleEpsOff = false;
+        }
+
+        var brake_val_capi = cluster_service.getBrake();
+        if (brake_val_capi === true) {
+            telltale.telltaleBrake = true;
+        } else {
+            telltale.telltaleBrake = false;
+        }
+
+        var abs_val_capi = cluster_service.getAbs();
+        if (abs_val_capi === true) {
+            telltale.telltaleAbsWarn = true;
+        } else {
+            telltale.telltaleAbsWarn = false;
+        }
+
+        var espact_val_capi = cluster_service.getEspAct();
+        if (espact_val_capi === true) {
+            telltale.telltaleEspAct = true;
+        } else {
+            telltale.telltaleEspAct = false;
+        }
+
+        var hill_val_capi = cluster_service.getHillDescent();
+        if (hill_val_capi === true) {
+            telltale.telltaleHillDescent = true;
+        } else {
+            telltale.telltaleHillDescent = false;
+        }
+
+        var immobi_val_capi = cluster_service.getImmobi();
+        if (immobi_val_capi === true) {
+            telltale.telltaleImmobi = true;
+        } else {
+            telltale.telltaleImmobi = false;
+        }
+
+        var door_val_capi = cluster_service.getDoor();
+        if (door_val_capi === true) {
+            telltale.telltaleDoor = true;
+        } else {
+            telltale.telltaleDoor = false;
+        }
+
+        var eps_val_capi = cluster_service.getEps();
+        if (eps_val_capi === true) {
+            telltale.telltaleEps = true;
+        } else {
+            telltale.telltaleEps = false;
+        }
+
+        var hibeamgreen_val_capi = cluster_service.getAutoHiBeamGreen();
+        var hibeam_val_capi = cluster_service.getHighbeam();
+        if (hibeamgreen_val_capi === true) {
+            telltale.telltaleHighbeamAssist = true;
+
+            if (hibeam_val_capi === true) {
+                telltale.telltaleHighbeam = true;
+                telltale.telltaleLowbeam = false;
+            } else {
+                telltale.telltaleHighbeam = false;
+                telltale.telltaleLowbeam = true;
+            }
+        } else {
+            telltale.telltaleHighbeamAssist = false;
+            telltale.telltaleHighbeam = false;
+            telltale.telltaleLowbeam = false;
+        }
+    }
 }
 
 
