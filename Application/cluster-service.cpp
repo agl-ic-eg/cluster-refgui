@@ -31,6 +31,20 @@ Q_INVOKABLE int QClusterService::getSpAnalogVal()
     return retval;
 }
 //-----------------------------------------------------------------------------------
+Q_INVOKABLE int QClusterService::getTaAnalogVal()
+{
+    uint32_t ta_u32 = 0;
+    int retval = 0;
+
+    ta_u32 = ::getTaAnalogVal();
+    if (ta_u32 > (uint32_t)INT_MAX)
+        retval = INT_MAX;
+    else
+        retval = (int)ta_u32;
+
+    return retval;
+}
+//-----------------------------------------------------------------------------------
 Q_INVOKABLE int QClusterService::getTrcomTripAVal()
 {
     uint32_t tripa_u32 = 0;
@@ -93,6 +107,216 @@ Q_INVOKABLE bool QClusterService::getFrontLeftSeatbelt()
     bool retval = false;
 
     on_off_flag = ::getFrontLeftSeatbelt();
+    if (on_off_flag == IC_HMI_OFF)
+        retval = false;
+    else
+        retval = true;
+
+    return retval;
+}
+//-----------------------------------------------------------------------------------
+Q_INVOKABLE bool QClusterService::getGeneralWarn()
+{
+    IC_HMI_ON_OFF on_off_flag = IC_HMI_OFF;
+    bool retval = false;
+
+    on_off_flag = ::getGeneralWarn();
+    if (on_off_flag == IC_HMI_OFF)
+        retval = false;
+    else
+        retval = true;
+
+    return retval;
+}
+//-----------------------------------------------------------------------------------
+Q_INVOKABLE bool QClusterService::getEngine()
+{
+    IC_HMI_ON_OFF on_off_flag = IC_HMI_OFF;
+    bool retval = false;
+
+    on_off_flag = ::getEngine();
+    if (on_off_flag == IC_HMI_OFF)
+        retval = false;
+    else
+        retval = true;
+
+    return retval;
+}
+//-----------------------------------------------------------------------------------
+Q_INVOKABLE bool QClusterService::getLowBattery()
+{
+    IC_HMI_ON_OFF on_off_flag = IC_HMI_OFF;
+    bool retval = false;
+
+    on_off_flag = ::getLowBattery();
+    if (on_off_flag == IC_HMI_OFF)
+        retval = false;
+    else
+        retval = true;
+
+    return retval;
+}
+//-----------------------------------------------------------------------------------
+Q_INVOKABLE bool QClusterService::getLdwOff()
+{
+    IC_HMI_ON_OFF on_off_flag = IC_HMI_OFF;
+    bool retval = false;
+
+    on_off_flag = ::getLdwOff();
+    if (on_off_flag == IC_HMI_OFF)
+        retval = false;
+    else
+        retval = true;
+
+    return retval;
+}
+//-----------------------------------------------------------------------------------
+Q_INVOKABLE bool QClusterService::getSrsAirbag()
+{
+    IC_HMI_ON_OFF on_off_flag = IC_HMI_OFF;
+    bool retval = false;
+
+    on_off_flag = ::getSrsAirbag();
+    if (on_off_flag == IC_HMI_OFF)
+        retval = false;
+    else
+        retval = true;
+
+    return retval;
+}
+//-----------------------------------------------------------------------------------
+Q_INVOKABLE bool QClusterService::getEspOff()
+{
+    IC_HMI_ON_OFF on_off_flag = IC_HMI_OFF;
+    bool retval = false;
+
+    on_off_flag = ::getEspOff();
+    if (on_off_flag == IC_HMI_OFF)
+        retval = false;
+    else
+        retval = true;
+
+    return retval;
+}
+//-----------------------------------------------------------------------------------
+Q_INVOKABLE bool QClusterService::getBrake()
+{
+    IC_HMI_ON_OFF on_off_flag = IC_HMI_OFF;
+    bool retval = false;
+
+    on_off_flag = ::getBrake();
+    if (on_off_flag == IC_HMI_OFF)
+        retval = false;
+    else
+        retval = true;
+
+    return retval;
+}
+//-----------------------------------------------------------------------------------
+Q_INVOKABLE bool QClusterService::getAbs()
+{
+    IC_HMI_ON_OFF on_off_flag = IC_HMI_OFF;
+    bool retval = false;
+
+    on_off_flag = ::getAbs();
+    if (on_off_flag == IC_HMI_OFF)
+        retval = false;
+    else
+        retval = true;
+
+    return retval;
+}
+//-----------------------------------------------------------------------------------
+Q_INVOKABLE bool QClusterService::getEspAct()
+{
+    IC_HMI_ON_OFF on_off_flag = IC_HMI_OFF;
+    bool retval = false;
+
+    on_off_flag = ::getEspAct();
+    if (on_off_flag == IC_HMI_OFF)
+        retval = false;
+    else
+        retval = true;
+
+    return retval;
+}
+//-----------------------------------------------------------------------------------
+Q_INVOKABLE bool QClusterService::getHillDescent()
+{
+    IC_HMI_ON_OFF on_off_flag = IC_HMI_OFF;
+    bool retval = false;
+
+    on_off_flag = ::getHillDescent();
+    if (on_off_flag == IC_HMI_OFF)
+        retval = false;
+    else
+        retval = true;
+
+    return retval;
+}
+//-----------------------------------------------------------------------------------
+Q_INVOKABLE bool QClusterService::getImmobi()
+{
+    IC_HMI_ON_OFF on_off_flag = IC_HMI_OFF;
+    bool retval = false;
+
+    on_off_flag = ::getImmobi();
+    if (on_off_flag == IC_HMI_OFF)
+        retval = false;
+    else
+        retval = true;
+
+    return retval;
+}
+//-----------------------------------------------------------------------------------
+Q_INVOKABLE bool QClusterService::getDoor()
+{
+    IC_HMI_ON_OFF on_off_flag = IC_HMI_OFF;
+    bool retval = false;
+
+    on_off_flag = ::getDoor();
+    if (on_off_flag == IC_HMI_OFF)
+        retval = false;
+    else
+        retval = true;
+
+    return retval;
+}
+//-----------------------------------------------------------------------------------
+Q_INVOKABLE bool QClusterService::getEps()
+{
+    IC_HMI_ON_OFF on_off_flag = IC_HMI_OFF;
+    bool retval = false;
+
+    on_off_flag = ::getEps();
+    if (on_off_flag == IC_HMI_OFF)
+        retval = false;
+    else
+        retval = true;
+
+    return retval;
+}
+//-----------------------------------------------------------------------------------
+Q_INVOKABLE bool QClusterService::getAutoHiBeamGreen()
+{
+    IC_HMI_ON_OFF on_off_flag = IC_HMI_OFF;
+    bool retval = false;
+
+    on_off_flag = ::getAutoHiBeamGreen();
+    if (on_off_flag == IC_HMI_OFF)
+        retval = false;
+    else
+        retval = true;
+
+    return retval;
+}
+//-----------------------------------------------------------------------------------
+Q_INVOKABLE bool QClusterService::getHighbeam()
+{
+    IC_HMI_ON_OFF on_off_flag = IC_HMI_OFF;
+    bool retval = false;
+
+    on_off_flag = ::getHighbeam();
     if (on_off_flag == IC_HMI_OFF)
         retval = false;
     else

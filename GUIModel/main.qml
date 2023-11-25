@@ -294,7 +294,11 @@ Window {
             onTriggered: {
                 // speed
                 var speed_val_capi = cluster_service.getSpAnalogVal();
-                meter.speedValue = speed_val_capi / 100;
+                meter.speedValue = speed_val_capi / 100.0;
+
+                // tacho
+                var tacho_val_capi = cluster_service.getTaAnalogVal();
+                meter.tachoValue = tacho_val_capi;
 
                 // Trip
                 //var tripa_val_capi = cluster_service.getTrcomTripAVal();
@@ -329,6 +333,115 @@ Window {
                 } else {
                     telltale.telltaleSeatbelt2 = false;
                 }
+
+                var genwarn_val_capi = cluster_service.getGeneralWarn();
+                if (genwarn_val_capi === true) {
+                    telltale.telltaleGeneralWarn = true;
+                } else {
+                    telltale.telltaleGeneralWarn = false;
+                }
+
+                var eng_val_capi = cluster_service.getEngine();
+                if (eng_val_capi === true) {
+                    telltale.telltaleMotorWarn = true;
+                } else {
+                    telltale.telltaleMotorWarn = false;
+                }
+
+                var lbatt_val_capi = cluster_service.getLowBattery();
+                if (lbatt_val_capi === true) {
+                    telltale.telltaleLowBatt = true;
+                } else {
+                    telltale.telltaleLowBatt = false;
+                }
+
+                var ldwoff_val_capi = cluster_service.getLdwOff();
+                if (ldwoff_val_capi === true) {
+                    telltale.telltaleLdw = true;
+                } else {
+                    telltale.telltaleLdw = false;
+                }
+
+                var srsair_val_capi = cluster_service.getSrsAirbag();
+                if (srsair_val_capi === true) {
+                    telltale.telltaleSrsAirbag = true;
+                } else {
+                    telltale.telltaleSrsAirbag = false;
+                }
+
+                var espoff_val_capi = cluster_service.getEspOff();
+                if (espoff_val_capi === true) {
+                    telltale.telltaleEpsOff = true;
+                } else {
+                    telltale.telltaleEpsOff = false;
+                }
+
+                var brake_val_capi = cluster_service.getBrake();
+                if (brake_val_capi === true) {
+                    telltale.telltaleBrake = true;
+                } else {
+                    telltale.telltaleBrake = false;
+                }
+
+                var abs_val_capi = cluster_service.getAbs();
+                if (abs_val_capi === true) {
+                    telltale.telltaleAbsWarn = true;
+                } else {
+                    telltale.telltaleAbsWarn = false;
+                }
+
+                var espact_val_capi = cluster_service.getEspAct();
+                if (espact_val_capi === true) {
+                    telltale.telltaleEspAct = true;
+                } else {
+                    telltale.telltaleEspAct = false;
+                }
+
+                var hill_val_capi = cluster_service.getHillDescent();
+                if (hill_val_capi === true) {
+                    telltale.telltaleHillDescent = true;
+                } else {
+                    telltale.telltaleHillDescent = false;
+                }
+
+                var immobi_val_capi = cluster_service.getImmobi();
+                if (immobi_val_capi === true) {
+                    telltale.telltaleImmobi = true;
+                } else {
+                    telltale.telltaleImmobi = false;
+                }
+
+                var door_val_capi = cluster_service.getDoor();
+                if (door_val_capi === true) {
+                    telltale.telltaleDoor = true;
+                } else {
+                    telltale.telltaleDoor = false;
+                }
+
+                var eps_val_capi = cluster_service.getEps();
+                if (eps_val_capi === true) {
+                    telltale.telltaleEps = true;
+                } else {
+                    telltale.telltaleEps = false;
+                }
+
+                var hibeamgreen_val_capi = cluster_service.getAutoHiBeamGreen();
+                var hibeam_val_capi = cluster_service.getHighbeam();
+                if (hibeamgreen_val_capi === true) {
+                    telltale.telltaleHighbeamAssist = true;
+
+                    if (hibeam_val_capi === true) {
+                        telltale.telltaleHighbeam = true;
+                        telltale.telltaleLowbeam = false;
+                    } else {
+                        telltale.telltaleHighbeam = false;
+                        telltale.telltaleLowbeam = true;
+                    }
+                } else {
+                    telltale.telltaleHighbeamAssist = false;
+                    telltale.telltaleHighbeam = false;
+                    telltale.telltaleLowbeam = false;
+                }
             }
         }
 
@@ -361,44 +474,6 @@ Window {
     }
 
     //FpsItem{}
-
-    function telltaleSwitching(){
-        telltale.telltaleMasterWarn = !telltale.telltaleMasterWarn
-        telltale.telltaleGeneralWarn = !telltale.telltaleGeneralWarn
-        telltale.telltaleBrakeEnergyRecovOff = !telltale.telltaleBrakeEnergyRecovOff
-        telltale.telltaleBrakeEnergyRecovLv = !telltale.telltaleBrakeEnergyRecovLv
-        telltale.telltaleMotorWarn = !telltale.telltaleMotorWarn
-        telltale.telltalePopupHoodWarn = !telltale.telltalePopupHoodWarn
-        telltale.telltaleDecharge = !telltale.telltaleDecharge
-        telltale.telltaleEvSystemWarn = !telltale.telltaleEvSystemWarn
-        telltale.telltaleChargingPlugWarn = !telltale.telltaleChargingPlugWarn
-        telltale.telltaleLowBatt = !telltale.telltaleLowBatt
-        telltale.telltaleBattWarn = !telltale.telltaleBattWarn
-        telltale.telltaleBattTempWarn = !telltale.telltaleBattTempWarn
-        telltale.telltaleHighVoltBattCut = !telltale.telltaleHighVoltBattCut
-        telltale.telltaleAeb = !telltale.telltaleAeb
-        telltale.telltaleLdw = !telltale.telltaleLdw
-        telltale.telltaleBsd = !telltale.telltaleBsd
-        telltale.telltaleSrsAirbag = !telltale.telltaleSrsAirbag
-        telltale.telltaleEpsOff = !telltale.telltaleEpsOff
-        telltale.telltaleBrake = !telltale.telltaleBrake
-        telltale.telltaleAbsWarn = !telltale.telltaleAbsWarn
-        telltale.telltaleEspAct = !telltale.telltaleEspAct
-        telltale.telltaleHillDescent = !telltale.telltaleHillDescent
-        telltale.telltaleAutoParking = !telltale.telltaleAutoParking
-        telltale.telltaleTpmsInd = !telltale.telltaleTpmsInd
-        telltale.telltaleImmobi = !telltale.telltaleImmobi
-        telltale.telltaleDoor = !telltale.telltaleDoor
-        telltale.telltaleSeatbelt = !telltale.telltaleSeatbelt
-        telltale.telltaleSeatbelt2 = !telltale.telltaleSeatbelt2
-        telltale.telltaleEpbWarn = !telltale.telltaleEpbWarn
-        telltale.telltaleEps= !telltale.telltaleEps
-        telltale.telltaleHighbeamAssist = true;//!telltale.telltaleHighbeamAssist
-        telltale.telltaleHighbeam = !telltale.telltaleHighbeam
-        telltale.telltaleRearFog = !telltale.telltaleRearFog
-        telltale.telltaleLowbeam = !telltale.telltaleLowbeam
-        telltale.telltalePosition = !telltale.telltalePosition
-    }
 }
 
 
