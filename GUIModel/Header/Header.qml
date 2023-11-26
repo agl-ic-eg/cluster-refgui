@@ -87,4 +87,7 @@ Item {
         turn_r_off.visible = true;
     }
 
+    function setTemp(temp_val) {
+        outsideTemperature.tempValue = temp_val;
+    }
 }

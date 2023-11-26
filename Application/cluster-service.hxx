@@ -15,6 +15,7 @@ public:
     Q_INVOKABLE int getSpAnalogVal();
     Q_INVOKABLE int getTaAnalogVal();
     Q_INVOKABLE int getTrcomTripAVal();
+    Q_INVOKABLE int getOTempVal();
     Q_INVOKABLE bool getTurnR();
     Q_INVOKABLE bool getTurnL();
     Q_INVOKABLE bool getFrontRightSeatbelt();

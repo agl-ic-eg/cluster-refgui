@@ -59,6 +59,17 @@ Q_INVOKABLE int QClusterService::getTrcomTripAVal()
     return retval;
 }
 //-----------------------------------------------------------------------------------
+Q_INVOKABLE int QClusterService::getOTempVal()
+{
+    int16_t tmp_val = -40;
+    int retval = -40;
+
+    tmp_val = ::getOTempVal();
+    retval = (int)tmp_val;
+
+    return retval;
+}
+//-----------------------------------------------------------------------------------
 Q_INVOKABLE bool QClusterService::getTurnR()
 {
     IC_HMI_ON_OFF on_off_flag = IC_HMI_OFF;

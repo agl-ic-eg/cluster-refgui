@@ -322,7 +322,6 @@ Window {
     //FpsItem{}
 
     function doUpdateClusterData(){
-
         // speed
         var speed_val_capi = cluster_service.getSpAnalogVal();
         meter.speedValue = speed_val_capi / 100.0;
@@ -330,6 +329,10 @@ Window {
         // tacho
         var tacho_val_capi = cluster_service.getTaAnalogVal();
         meter.tachoValue = tacho_val_capi;
+
+        // temp
+        var temp_val_capi = cluster_service.getOTempVal();
+        header.setTemp(temp_val_capi);
 
         // Gear
         var gear_val_capi = cluster_service.getGearAtVal();
