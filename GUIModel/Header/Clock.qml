@@ -126,4 +126,16 @@ Item{
             visible: false
         }
     }
+
+    Timer {
+        interval: 500
+        repeat: true
+        running: true
+        onTriggered: {
+            var date = new Date;
+            timeHour = date.getHours();
+            timeMinute = date.getMinutes();
+        }
+    }
+
 }
