@@ -325,6 +325,57 @@ Q_INVOKABLE bool QClusterService::getHighbeam()
     return retval;
 }
 //-----------------------------------------------------------------------------------
+Q_INVOKABLE QString QClusterService::getGearAtVal()
+{
+    IC_HMI_GEAR_AT_VAL gear_val = IC_HMI_AT_UNUSED;
+    QString gear_string = QString("");
+
+    gear_val = ::getGearAtVal();
+
+    switch (gear_val) {
+    case IC_HMI_AT_OFF :
+        gear_string = QString("Off");
+        break;
+    case IC_HMI_AT_PARKING :
+        gear_string = QString("P");
+        break;
+    case IC_HMI_AT_REVERSE :
+        gear_string = QString("R");
+        break;
+    case IC_HMI_AT_NEUTRAL :
+        gear_string = QString("N");
+        break;
+    case IC_HMI_AT_DRIVE :
+        gear_string = QString("D");
+        break;
+    case IC_HMI_AT_SECOND :
+        gear_string = QString("S");
+        break;
+    case IC_HMI_AT_LOW_GEAR :
+        gear_string = QString("L");
+        break;
+    case IC_HMI_AT_FIRST :
+        gear_string = QString("F");
+        break;
+    case IC_HMI_AT_MANUAL :
+        gear_string = QString("M");
+        break;
+    case IC_HMI_AT_BRAKE :
+        gear_string = QString("B");
+        break;
+    case IC_HMI_AT_ALL_ON :
+    case IC_HMI_AT_ALL_OFF :
+    case IC_HMI_AT_UNUSED :
+        gear_string = QString("Error");
+        break;
+    default:
+        gear_string = QString("Off");
+        break;
+    }
+
+    return gear_string;
+}
+//-----------------------------------------------------------------------------------
 /*
 static void ic_notify(uint64_t signal, IC_HMI_ON_OFF val)ui
 {

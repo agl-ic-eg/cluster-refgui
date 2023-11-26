@@ -331,6 +331,22 @@ Window {
         var tacho_val_capi = cluster_service.getTaAnalogVal();
         meter.tachoValue = tacho_val_capi;
 
+        // Gear
+        var gear_val_capi = cluster_service.getGearAtVal();
+        if (gear_val_capi === "D") {
+            shiftPosition.shiftId = 1;
+        } else if (gear_val_capi === "B") {
+            shiftPosition.shiftId = 2;
+        } else if (gear_val_capi === "N") {
+            shiftPosition.shiftId = 3;
+        } else if (gear_val_capi === "R") {
+            shiftPosition.shiftId = 4;
+        } else if (gear_val_capi === "P") {
+            shiftPosition.shiftId = 5;
+        } else {
+            shiftPosition.shiftId = 0;
+        }
+
         // Trip
         //var tripa_val_capi = cluster_service.getTrcomTripAVal();
         //cruisingRange.cruisingRangeValue = tripa_val_capi / 10;

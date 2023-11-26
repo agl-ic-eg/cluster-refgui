@@ -35,6 +35,8 @@ public:
     Q_INVOKABLE bool getAutoHiBeamGreen();
     Q_INVOKABLE bool getHighbeam();
 
+    Q_INVOKABLE QString getGearAtVal();
+
 
     // class I/F for C++
     QClusterService();
